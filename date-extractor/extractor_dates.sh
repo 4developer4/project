@@ -12,3 +12,4 @@ for file in "$NOTES_DIR"/*.txt; do
     while IFS= read -r line; do
 # 4. clean the line from punctuation using sed
 clean_line=$(echo "$line" | sed 's/[.,!?]//g')
+#just a commint
