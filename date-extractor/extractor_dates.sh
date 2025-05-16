@@ -10,3 +10,5 @@ echo "Filename,Extracted Date,Cleaned Line" > "$OUTPUT_FILE"
 # 3. Loop through each note file
 for file in "$NOTES_DIR"/*.txt; do
     while IFS= read -r line; do
+# 4. clean the line from punctuation using sed
+clean_line=$(echo "$line" | sed 's/[.,!?]//g')
