@@ -14,7 +14,7 @@ for file in "$NOTES_DIR"/*.txt; do
 clean_line=$(echo "$line" | sed 's/[.,!?]//g')
 # 5. this line extracts the dates using grep and xargs and stores them in the variable matches
 matches=$(echo "$clean_line" | grep -oE '[0-9]{4}-[0-9]{2}-[0-9]{2}|[0-9]{1,2}/[0-9]{1,2}/[0-9]{4}|[0-9]{1,2} [A-Z][a-z]+ [0-9]{4}')
-# 5. print the final results by using awk
+# 6. print the final results by using awk
 echo "$matches" | awk -v file="$(basename "$file")" -v line="$clean_line" 'NF { print file "," $1 "," line }' >> "$OUTPUT_FILE"
 done < "$file"
 done
